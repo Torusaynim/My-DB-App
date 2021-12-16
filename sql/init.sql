@@ -118,7 +118,7 @@ CREATE TABLE `Students`
   `GroupInstituteID` INTEGER(10) NOT NULL,
   `IsHeadman` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE SET NULL
+  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -135,6 +135,55 @@ CREATE TABLE `Teachers`
   `SubjectID` INTEGER(10) NOT NULL,
   `SubjectDepartmentID` INTEGER(10) NOT NULL,
   `SubjectInstituteID` INTEGER(10) NOT NULL,
-  PRIMARY KEY (`TeacherID`),
-  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE SET NULL
+  PRIMARY KEY (`id`),
+  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE
 );
+
+
+
+-- -----------------------------------------------------
+-- Demonstrational Data
+-- -----------------------------------------------------
+
+USE appDB;
+
+INSERT INTO Institutes VALUES
+('1', 'Institute of Technical Studies', 'A. N. Nikolayevich', '301'),
+('2', 'Institute of Informational Technologies', 'I. M. Viktorovich', '577'),
+('3', 'Institute of Applied Chemistry', 'N. K. Konovalov', '350');
+
+INSERT INTO Departments VALUES
+('1', 'Applied Math', 'A. N. Jurchenko', '351', '1'),
+('2', 'Hardware Development', 'I. N. Vorobyev', '452', '2'),
+('3', 'Organic Chemistry', 'B. I. Palkin', '323', '3'),
+('4', 'Web Development', 'A. L. Lidina', '461', '2');
+
+INSERT INTO StudyGroups VALUES
+('1', 'OC-05-19', '3', '3', '3'),
+('2', 'HD-01-19', '3', '2', '2'),
+('3', 'HD-02-19', '3', '2', '2'),
+('4', 'WD-04-19', '3', '4', '2');
+
+INSERT INTO Subjects VALUES
+('1', 'Linear Algebra', 'Exam', '1', '1'),
+('2', 'Data Structures', 'Zach', '2', '2'),
+('3', 'Pharmacy', 'Exam', '3', '3');
+
+INSERT INTO Classes VALUES
+('1', '2021-10-21', '14:40:00', '301', '0', '4', '4', '2', '1', '1', '1'),
+('2', '2021-10-21', '12:00:00', '112', '1', '1', '3', '3', '3', '3', '3'),
+('3', '2021-10-21', '09:00:00', '255', '1', '3', '2', '2', '2', '2', '2');
+
+INSERT INTO Students VALUES
+('1', 'V. A. Demidov', '2000-09-14', '0', NULL, '79159871234', '1', '3', '3', '0'),
+('2', 'K. Z. Zubanchinko', '2000-06-05', '0', 'Kzub@gmail.net', NULL, '3', '2', '2', '1'),
+('3', 'V. V. Viktorovich', '2001-01-10', '1', NULL, NULL, '4', '4', '2', '0');
+
+INSERT INTO Teachers VALUES
+('1', 'A. V. Petrovna', 'Senior Lecturer', NULL, '3', '3', '3'),
+('2', 'A. N. Kuprina', 'Senior Lecturer', 'Kuporos@voprosov.net', '2', '2', '2'),
+('3', 'V. N. Potemkin', 'Professor', 'NULL', '1', '1', '1');
+
+-- -----------------------------------------------------
+-- Make sure to delete this ;)
+-- -----------------------------------------------------

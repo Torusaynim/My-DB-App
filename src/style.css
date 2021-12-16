@@ -5,6 +5,13 @@
     cursor: pointer;
     -webkit-user-select: none;
 }
-th::before{
+th::before {
     content: "⇅";
+}
+a, a:active, a:hover {
+    color: #212529;
+    text-decoration: none;
+}
+h1:first-child::before {
+    content: "🗘";
 }
