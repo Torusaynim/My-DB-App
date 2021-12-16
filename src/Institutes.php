@@ -172,15 +172,7 @@ if (isset($_POST['filter']))
   <!-- Meta tags -->
   <title>My DB App | Institutes</title>
   <meta charset="utf-8">
-  <style>
-    ::-webkit-scrollbar {
-      width: 0;
-    }
-    .table_sort th {
-      cursor: pointer;
-      -webkit-user-select: none;
-    }
-  </style>
+  <link rel="stylesheet" href="style.css">
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
@@ -293,7 +285,7 @@ if (isset($_POST['filter']))
 
     <div class="input-group mb-3 wid40">
       <span class="input-group-text" id="basic-addon2">Look for specific IDs</span>
-      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyID" placeholder="List the numbers">
+      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyID" placeholder="List IDs to search">
     </div>
 
     <h3 class="text">Name of the Institute parameters</h3>
@@ -318,10 +310,11 @@ if (isset($_POST['filter']))
 
     <div class="input-group mb-3 wid40">
       <span class="input-group-text" id="basic-addon2">Look for specific office numbers</span>
-      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyNum" placeholder="List the numbers">
+      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyNum" placeholder="List office numbers to search">
     </div>
 
-    <input class="btn btn-secondary btn-lg w-100" type="submit" name="filter" value="Применить фильтры">
+    <input class="btn btn-info btn-lg w-100 mt-3" type="submit" name="filter" value="Apply Filters">
+    <a class="btn btn-secondary btn-lg w-100 mt-3" href="Institutes.php">Reset Filters</a>
 
     </form>
   </div>

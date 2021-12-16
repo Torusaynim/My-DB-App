@@ -1,0 +1,10 @@
+::-webkit-scrollbar {
+    width: 0;
+}
+.table_sort th {
+    cursor: pointer;
+    -webkit-user-select: none;
+}
+th::before{
+    content: "⇅";
+}
