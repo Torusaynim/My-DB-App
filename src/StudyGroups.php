@@ -12,7 +12,7 @@ if (isset($_POST['create']))
   $depid = mysqli_real_escape_string($connection, $_POST['depid']);
   $instid = mysqli_real_escape_string($connection, $_POST['instid']);
 
-  $query = "INSERT INTO `StudyGroups` (GroupName, GroupTerm, GroupDepartmentID, GroupInstituteID) VALUES ('$name', '$term', '$depid', '$instid')";
+  $query = "INSERT INTO `StudyGroups` (GroupName, GroupTerm, GroupDepartmentID, GroupInstituteID) VALUES (NULLIF('$name', ''), '$term', '$depid', '$instid')";
   $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 }
 

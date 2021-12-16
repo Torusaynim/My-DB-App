@@ -12,7 +12,7 @@ if (isset($_POST['create']))
   $office = mysqli_real_escape_string($connection, $_POST['office']);
   $instid = mysqli_real_escape_string($connection, $_POST['instid']);
 
-  $query = "INSERT INTO `Departments` (DepartmentName, DepartmentHeadName, DepartmentOffice, InstituteID) VALUES ('$name', '$director', '$office', '$instid')";
+  $query = "INSERT INTO `Departments` (DepartmentName, DepartmentHeadName, DepartmentOffice, InstituteID) VALUES (NULLIF('$name', ''), NULLIF('$director', ''), '$office', '$instid')";
   $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 }
 

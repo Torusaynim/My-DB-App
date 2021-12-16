@@ -18,7 +18,7 @@ if (isset($_POST['create']))
   $subdepid = mysqli_real_escape_string($connection, $_POST['subdepid']);
   $subinstid = mysqli_real_escape_string($connection, $_POST['subinstid']);
 
-  $query = "INSERT INTO `Classes` (ClassDate, ClassTime, ClassRoom, ClassForm, GroupID, GroupDepartmentID, GroupInstituteID, SubjectID, SubjectDepartmentID, SubjectInstituteID) VALUES ('$date', '$time', '$classroom', '$form', '$grpid', '$grpdepid', '$grpinstid', '$subid', '$subdepid', '$subinstid')";
+  $query = "INSERT INTO `Classes` (ClassDate, ClassTime, ClassRoom, ClassForm, GroupID, GroupDepartmentID, GroupInstituteID, SubjectID, SubjectDepartmentID, SubjectInstituteID) VALUES ('$date', NULLIF('$time', ''), '$classroom', '$form', '$grpid', '$grpdepid', '$grpinstid', '$subid', '$subdepid', '$subinstid')";
   $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 }
 

@@ -11,7 +11,7 @@ if (isset($_POST['create']))
   $director = mysqli_real_escape_string($connection, $_POST['director']);
   $office = mysqli_real_escape_string($connection, $_POST['office']);
 
-  $query = "INSERT INTO `Institutes` (InstituteName, InstituteHeadName, InstituteOffice) VALUES ('$name', '$director', '$office')";
+  $query = "INSERT INTO `Institutes` (InstituteName, InstituteHeadName, InstituteOffice) VALUES (NULLIF('$name', ''), NULLIF('$director', ''), '$office')";
   $result = mysqli_query($connection, $query) or die(mysqli_error($connection));
 }
 

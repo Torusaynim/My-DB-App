@@ -139,7 +139,31 @@ CREATE TABLE `Teachers`
   FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
+-- -----------------------------------------------------
+-- Triggers
+-- -----------------------------------------------------
 
+DELIMITER //
+CREATE TRIGGER headman_update_check
+BEFORE UPDATE
+ON Students
+FOR EACH ROW
+IF NEW.IsHeadman=1 AND NEW.StudentEmail IS NULL AND NEW.StudentPhoneNum IS NULL THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = 'Can not promote student without any contacts to a headman';
+END IF//
+DELIMITER ;
+
+DELIMITER //
+CREATE TRIGGER headman_insert_check
+BEFORE INSERT
+ON Students
+FOR EACH ROW
+IF NEW.IsHeadman=1 AND NEW.StudentEmail IS NULL AND NEW.StudentPhoneNum IS NULL THEN
+SIGNAL SQLSTATE '45000'
+SET MESSAGE_TEXT = 'Can not create a new student without any contacts as headman';
+END IF//
+DELIMITER ;
 
 -- -----------------------------------------------------
 -- Demonstrational Data
