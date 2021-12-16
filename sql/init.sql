@@ -42,7 +42,7 @@ CREATE TABLE `Departments`
   `DepartmentOffice` INTEGER(10) NOT NULL,
   `InstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`, `InstituteID`),
-  FOREIGN KEY (`InstituteID`) REFERENCES `Institutes` (`id`) ON DELETE CASCADE
+  FOREIGN KEY (`InstituteID`) REFERENCES `Institutes` (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -58,7 +58,7 @@ CREATE TABLE `StudyGroups`
   `GroupDepartmentID` INTEGER(10) NOT NULL,
   `GroupInstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`, `GroupDepartmentID`, `GroupInstituteID`),
-  FOREIGN KEY (`GroupDepartmentID`, `GroupInstituteID`) REFERENCES `Departments` (`id`, `InstituteID`) ON DELETE CASCADE
+  FOREIGN KEY (`GroupDepartmentID`, `GroupInstituteID`) REFERENCES `Departments` (`id`, `InstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -74,7 +74,7 @@ CREATE TABLE `Subjects`
   `SubjectDepartmentID` INTEGER(10) NOT NULL,
   `SubjectInstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`, `SubjectDepartmentID`, `SubjectInstituteID`),
-  FOREIGN KEY (`SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Departments` (`id`, `InstituteID`) ON DELETE CASCADE
+  FOREIGN KEY (`SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Departments` (`id`, `InstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -96,8 +96,8 @@ CREATE TABLE `Classes`
   `SubjectDepartmentID` INTEGER(10) NOT NULL,
   `SubjectInstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`,`GroupID`,`SubjectID`,`GroupDepartmentID`,`SubjectDepartmentID`,`GroupInstituteID`,`SubjectInstituteID`),
-  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE CASCADE,
-  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE
+  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE CASCADE ON UPDATE CASCADE,
+  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -118,7 +118,7 @@ CREATE TABLE `Students`
   `GroupInstituteID` INTEGER(10) NOT NULL,
   `IsHeadman` BOOLEAN NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE CASCADE
+  FOREIGN KEY (`GroupID`, `GroupDepartmentID`, `GroupInstituteID`) REFERENCES `StudyGroups` (`id`, `GroupDepartmentID`, `GroupInstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 -- -----------------------------------------------------
@@ -136,7 +136,7 @@ CREATE TABLE `Teachers`
   `SubjectDepartmentID` INTEGER(10) NOT NULL,
   `SubjectInstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`),
-  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE
+  FOREIGN KEY (`SubjectID`, `SubjectDepartmentID`, `SubjectInstituteID`) REFERENCES `Subjects` (`id`, `SubjectDepartmentID`, `SubjectInstituteID`) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
 

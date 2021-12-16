@@ -130,7 +130,7 @@ if (isset($_POST['update']))
       <form name="form" action="" method="POST">
         <td>...</td>
         <td><input class="input-group" type="text" name="name" id="Name" placeholder="Name of the Department"></td>
-        <td><input class="input-group" type="text" name="instid" id="InstID" placeholder="Institute ID"></td>
+        <td><input class="input-group" type="number" name="instid" id="InstID" placeholder="Institute ID"></td>
         <td><input class="input-group" type="text" name="director" id="Director" placeholder="Director"></td>
         <td><input class="input-group" type="number" name="office" id="Office" placeholder="Office Number"></td>
         <!-- Confirm -->
@@ -141,7 +141,7 @@ if (isset($_POST['update']))
       <form name="form" action="" method="POST">
         <td><input class="input-group" type="number" name="id" id="id" placeholder="ID"></td>
         <td><input class="input-group" type="text" name="name" id="Name" placeholder="Name of the Department"></td>
-        <td><input class="input-group" type="text" name="instid" id="InstID" placeholder="Institute ID"></td>
+        <td><input class="input-group" type="number" name="instid" id="InstID" placeholder="Institute ID"></td>
         <td><input class="input-group" type="text" name="director" id="Director" placeholder="Director"></td>
         <td><input class="input-group" type="number" name="office" id="Office" placeholder="Office Number"></td>
         <!-- Confirm -->

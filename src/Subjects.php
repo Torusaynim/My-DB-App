@@ -131,7 +131,7 @@ if (isset($_POST['update']))
         <td>...</td>
         <td><input class="input-group" type="text" name="name" id="Name" placeholder="Name of the Subject"></td>
         <td><input class="input-group" type="text" name="finals" id="Finals" placeholder="Subject Finals"></td>
-        <td><input class="input-group" type="text" name="depid" id="DepID" placeholder="Department ID"></td>
+        <td><input class="input-group" type="number" name="depid" id="DepID" placeholder="Department ID"></td>
         <td><input class="input-group" type="number" name="instid" id="InstID" placeholder="Institute ID"></td>
         <!-- Confirm -->
         <td><input type="submit" name="create" value="Create" class='btn btn-outline-success w-100'></td>
@@ -142,7 +142,7 @@ if (isset($_POST['update']))
         <td><input class="input-group" type="number" name="id" id="id" placeholder="ID"></td>
         <td><input class="input-group" type="text" name="name" id="Name" placeholder="Name of the Subject"></td>
         <td><input class="input-group" type="text" name="finals" id="Finals" placeholder="Subject Finals"></td>
-        <td><input class="input-group" type="text" name="depid" id="DepID" placeholder="Department ID"></td>
+        <td><input class="input-group" type="number" name="depid" id="DepID" placeholder="Department ID"></td>
         <td><input class="input-group" type="number" name="instid" id="InstID" placeholder="Institute ID"></td>
         <!-- Confirm -->
         <td><input type="submit" name="update" value="Update" class='btn btn-outline-primary w-100'></td>
