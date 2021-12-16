@@ -249,9 +249,9 @@ if (isset($_POST['filter']))
     <tr>
       <form name="form" action="" method="POST">
         <td><input class="input-group" type="number" name="id" id="id" placeholder="ID"></td>
-        <td><input class="input-group" type="text" name="name" id="name" placeholder="Name of the Institute"></td>
-        <td><input class="input-group" type="text" name="director" id="director" placeholder="Director"></td>
-        <td><input class="input-group" type="number" name="office" id="office" placeholder="Office Number"></td>
+        <td><input class="input-group" type="text" name="name" id="Name" placeholder="Name of the Institute"></td>
+        <td><input class="input-group" type="text" name="director" id="Director" placeholder="Director"></td>
+        <td><input class="input-group" type="number" name="office" id="Office" placeholder="Office Number"></td>
         <!-- Confirm -->
         <td><input type="submit" name="update" value="Update" class='btn btn-outline-primary w-100'></td>
       </form>
@@ -286,7 +286,7 @@ if (isset($_POST['filter']))
 
     <div class="input-group mb-3 wid40">
       <span class="input-group-text" id="basic-addon2">Look for specific IDs</span>
-      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyID" placeholder="List IDs to search">
+      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyID" placeholder="List IDs to search separated with comma">
     </div>
 
     <h3 class="text">Name of the Institute parameters</h3>
@@ -311,7 +311,7 @@ if (isset($_POST['filter']))
 
     <div class="input-group mb-3 wid40">
       <span class="input-group-text" id="basic-addon2">Look for specific office numbers</span>
-      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyNum" placeholder="List office numbers to search">
+      <input type="text" class="form-control input_height" aria-describedby="basic-addon2" name="multyNum" placeholder="List office numbers to search separated with comma">
     </div>
 
     <input class="btn btn-info btn-lg w-100 mt-3" type="submit" name="filter" value="Apply Filters">

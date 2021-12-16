@@ -70,7 +70,7 @@ CREATE TABLE `Subjects`
 (
   `id` INTEGER(10) NOT NULL AUTO_INCREMENT,
   `SubjectName` VARCHAR(50) NOT NULL,
-  `SubjectFinals` VARCHAR(10) NULL,
+  `SubjectFinals` VARCHAR(20) NULL,
   `SubjectDepartmentID` INTEGER(10) NOT NULL,
   `SubjectInstituteID` INTEGER(10) NOT NULL,
   PRIMARY KEY (`id`, `SubjectDepartmentID`, `SubjectInstituteID`),
@@ -182,7 +182,7 @@ INSERT INTO Students VALUES
 INSERT INTO Teachers VALUES
 ('1', 'A. V. Petrovna', 'Senior Lecturer', NULL, '3', '3', '3'),
 ('2', 'A. N. Kuprina', 'Senior Lecturer', 'Kuporos@voprosov.net', '2', '2', '2'),
-('3', 'V. N. Potemkin', 'Professor', 'NULL', '1', '1', '1');
+('3', 'V. N. Potemkin', 'Professor', NULL, '1', '1', '1');
 
 -- -----------------------------------------------------
 -- Make sure to delete this ;)
